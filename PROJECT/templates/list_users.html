@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'style_users.css' %}">
     <title>Users</title>
 </head>
-
 <body>
     <div class="home-page">
-        <a class="title" href="/">Home page</a><br>
+        <a href="/">Home page</a>
     </div>
 
-    <form method="get" action="{% url 'all_users' %}">
-        <label for="choice">Кол-во пользователей на странице:</label>
-        <select name="choice" id="choice" onchange="this.form.submit()">
-            <option value="1" {% if selected_choice=='1' %}selected{% endif %}>1</option>
-            <option value="2" {% if selected_choice=='2' %}selected{% endif %}>2</option>
-            <option value="3" {% if selected_choice=='3' %}selected{% endif %}>3</option>
-        </select>
-    </form>
-    {% for user in page_users %}
-    <ul>
-        <li>
-            {{ user.name }}
-            <br>{{ user.nickname }}
-        </li>
-    </ul>
-    {% endfor %}
+    <div class="form">
+        <form method="get" action="{% url 'all_users' %}">
+            <label for="choice">Кол-во пользователей на странице:</label>
+            <select name="choice" id="choice" onchange="this.form.submit()">
+                <option value="1" {% if selected_choice == '1' %}selected{% endif %}>1</option>
+                <option value="2" {% if selected_choice == '2' %}selected{% endif %}>2</option>
+                <option value="3" {% if selected_choice == '3' %}selected{% endif %}>3</option>
+            </select>
+        </form>
+    </div>
 
-    <div>
+    <div class="show-users">
+        {% for user in page_users %}
+        <span class="users">
+            {{ user.name }}
+            <br><span class="nickname">{{ user.nickname }}</span>
+        </span>
+        {% endfor %}
+    </div>
+
+    <div class="show-paginator">
         <ul class="paginator">
             {% if page_users.has_previous %}
             <li><a href="?page={{ page_users.previous_page_number }}&choice={{selected_choice}}">пред.</a></li>
@@ -59,5 +60,4 @@
         </ul>
     </div>
 </body>
-
 </html>

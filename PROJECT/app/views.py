@@ -4,8 +4,10 @@ from .models import User, Post
 
 # Create your views here.
 
+
 def base_page(request):
     return render(request, 'base_page.html')
+
 
 def all_users(request):
     users = User.objects.all()
@@ -29,8 +31,9 @@ def all_users(request):
     }
     return render(request, 'list_users.html', context)
 
+
 def all_posts(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-date_published')
     
     selected_choice = request.GET.get('choice', '3')
     
@@ -50,4 +53,3 @@ def all_posts(request):
         'all_pages': all_pages
     }
     return render(request, 'list_posts.html', context)
-

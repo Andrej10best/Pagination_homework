@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'style_posts.css' %}">
     <title>Posts</title>
 </head>
-
 <body>
-    <form method="get" action="{% url 'all_posts' %}">
-        <label for="choice">Кол-во постов на странице:</label>
-        <select name="choice" id="choice" onchange="this.form.submit()">
-            <option value="1" {% if selected_choice=='1' %}selected{% endif %}>1</option>
-            <option value="2" {% if selected_choice=='2' %}selected{% endif %}>2</option>
-            <option value="3" {% if selected_choice=='3' %}selected{% endif %}>3</option>
-        </select>
-    </form>
-    {% for post in page_posts %}
-    <ul>
-        <li>
-            <span class="post-author">{{ post.user.nickname }} ({{ post.user.name }})</span>
-            <p><span class="post-title">{{ post.title }}</span><br>
-                <span class="post-description">{{ post.description }}</span>
-            </p>
-            <p><span class="post-date">{{ post.date_published|date:"d M Y | H:i" }}</span></p>
-        </li><br>
-    </ul>
-    {% endfor %}
+    <div class="home-page">
+        <a href="/">Home page</a>
+    </div>
 
-    <div>
+    <div class="form">
+        <form method="get" action="{% url 'all_posts' %}">
+            <label for="choice">Кол-во постов на странице:</label>
+            <select name="choice" id="choice" onchange="this.form.submit()">
+                <option value="1" {% if selected_choice == '1' %}selected{% endif %}>1</option>
+                <option value="2" {% if selected_choice == '2' %}selected{% endif %}>2</option>
+                <option value="3" {% if selected_choice == '3' %}selected{% endif %}>3</option>
+            </select>
+        </form>
+    </div>
+
+    <div class="show-posts">
+        {% for post in page_posts %}
+        <span class="post-obj">
+            <span class="post-author">{{ post.user.nickname }} ({{ post.user.name }})</span>
+            <span class="posts">
+                <p><span class="post-title">{{ post.title }}</span>
+                <span class="post-description">{{ post.description }}</span>
+                <p><span class="post-date">{{ post.date_published|date:"d M Y | H:i" }}</span></p>
+            </span>
+        </span><br>
+        {% endfor %}
+    </div>
+
+    <div class="show-paginator">
         <ul class="paginator">
             {% if page_posts.has_previous %}
             <li><a href="?page={{ page_posts.previous_page_number }}&choice={{selected_choice}}">пред.</a></li>
@@ -58,5 +64,4 @@
         </ul>
     </div>
 </body>
-
 </html>

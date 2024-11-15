@@ -3,14 +3,96 @@ body {
     margin: 10px;
 }
 
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+}
+
+.home-page a {
+    display: block;
+    font-size: 40px;
+    text-decoration: none; /* Убираем подчеркивание */
+    padding: 6px 10px; /* Внутренние отступы для удобства клика */
+    border: 1px solid #007BFF; /* Обводка для видимости */
+    color: #007BFF; /* Цвет текста */
+    border-radius: 20px; /* Закругление углов */
+    transition: background 0.3s; /* Плавный переход для фона */
+    margin: 0 5px; /* Расстояние между страницами */
+}
+
+.home-page a:hover {
+    background: #007BFF; /* Цвет фона при наведении */
+    color: #f0f0f0; /* Цвет текста при наведении */
+    box-shadow: 0px 0px 50px #007BFF;
+    transition: box-shadow 0.5s ease;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.show-posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 20px;
+}
+
+.show-posts .post-obj {
+    display: flex;
+    flex-direction: column;
+}
+
+.show-posts .post-obj .post-author {
+    font-size: 14px;
+    font-style: oblique;
+}
+
+.show-posts .posts {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    border: 1px solid #007BFF;
+    padding: 6px 10px;
+    margin: 10px 0px;
+    border-radius: 8px;
+}
+
+.show-posts .posts .post-title {
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0px 0px 10px;
+}
+
+.show-posts .post-obj .posts .post-date {
+    font-size: 14px;
+    font-style: oblique;
+    text-decoration: underline ;
+}
+
+.show-paginator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+}
+
 .paginator {
     display: flex; /* Используем flex для горизонтального расположения элементов */
     list-style-type: none; /* Убираем маркеры списка */
-    padding: px; /* Убираем отступы */
+    padding: 10px; /* Убираем отступы */
     margin: 10px 10px; /* Задаем внешние отступы */
 }
-
-
 
 .paginator a {
     text-decoration: none; /* Убираем подчеркивание */
@@ -34,7 +116,7 @@ body {
 }
 
 .paginator a:hover {
-    background: #f0f0f0; /* Цвет фона при наведении */
+    background: #afafaf; /* Цвет фона при наведении */
     color: #0056b3; /* Цвет текста при наведении */
 }
 
