@@ -1,0 +1,60 @@
+{% extends "base_page.html" %}
+{% load static %}
+
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style_users.css' %}">
+    <title>Users</title>
+</head>
+{% endblock %}
+
+
+{% block content %}
+<form method="get" action="{% url 'all_users' %}">
+    <label for="choice">Кол-во пользователей на странице:</label>
+    <select name="choice" id="choice" onchange="this.form.submit()">
+        <option value="1" {% if selected_choice == '1' %}selected{% endif %}>1</option>
+        <option value="2" {% if selected_choice == '2' %}selected{% endif %}>2</option>
+        <option value="3" {% if selected_choice == '3' %}selected{% endif %}>3</option>
+    </select>
+</form>
+{% for user in page_users %}
+<ul>
+    <li>
+        {{ user.name }}
+        <br>{{ user.nickname }}
+    </li>
+</ul>
+{% endfor %}
+
+<div>
+    <ul class="paginator">
+        {% if page_users.has_previous %}
+        <li><a href="?page={{ page_users.previous_page_number }}&choice={{selected_choice}}">пред.</a></li>
+        {% endif %}
+        {% if not page_users.has_previous %}
+        <li class="disabled"><a href="#">пред.</a></li>
+        {% endif %}
+        
+        {% for num in all_pages %}
+        <li>
+            {% if num == page_users.number %}
+            <span class="active"><a href="?page={{ num }}&choice={{selected_choice}}">{{ num }}</a></span>
+            {% else %}
+            <a href="?page={{ num }}&choice={{selected_choice}}">{{ num }}</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+
+        {% if page_users.has_next %}
+        <li><a href="?page={{ page_users.next_page_number }}&choice={{selected_choice}}">след.</a></li>
+        {% endif %}
+        {% if not page_users.has_next %}
+        <li class="disabled"><a href="#">след.</a></li>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}
+

@@ -1,0 +1,45 @@
+body {
+    font-family: Verdana;
+    margin: 10px;
+}
+
+.paginator {
+    display: flex; /* Используем flex для горизонтального расположения элементов */
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: px; /* Убираем отступы */
+    margin: 10px 10px; /* Задаем внешние отступы */
+}
+
+
+
+.paginator a {
+    text-decoration: none; /* Убираем подчеркивание */
+    padding: 10px 15px; /* Внутренние отступы для удобства клика */
+    border: 1px solid #007BFF; /* Обводка для видимости */
+    color: #007BFF; /* Цвет текста */
+    border-radius: 5px; /* Закругление углов */
+    transition: background 0.3s; /* Плавный переход для фона */
+    margin: 0 5px; /* Расстояние между страницами */
+}
+
+.paginator .active a {
+    background: #007BFF; /* Цвет фона для активной страницы */
+    color: white; /* Цвет текста для активной страницы */
+    border: 1px solid #0056b3; /* Более темная обводка для активного состояния */
+}
+.paginator .active a:hover {
+    background: #007BFF; /* Цвет фона для активной страницы */
+    color: white; /* Цвет текста для активной страницы */
+    border: 1px solid #0056b3; /* Более темная обводка для активного состояния */
+}
+
+.paginator a:hover {
+    background: #f0f0f0; /* Цвет фона при наведении */
+    color: #0056b3; /* Цвет текста при наведении */
+}
+
+.paginator .disabled a {
+    color: gray; /* Цвет текста для отключенного состояния */
+    pointer-events: none; /* Отключаем кликабельность */
+    border: 1px solid lightgray; /* Обводка для отключенных элементов */
+}
