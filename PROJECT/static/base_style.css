@@ -11,18 +11,6 @@ body {
     margin: 30px;
 }
 
-.home-page .title a {
-    display: block;
-    font-size: 40px;
-    text-decoration: none; /* Убираем подчеркивание */
-    padding: 10px 15px; /* Внутренние отступы для удобства клика */
-    border: 1px solid #007BFF; /* Обводка для видимости */
-    color: #007BFF; /* Цвет текста */
-    border-radius: 20px; /* Закругление углов */
-    transition: background 0.3s; /* Плавный переход для фона */
-    margin: 0 5px; /* Расстояние между страницами */
-}
-
 .home-page a {
     display: block;
     text-decoration: none; /* Убираем подчеркивание */
@@ -33,5 +21,4 @@ body {
     transition: background 0.3s; /* Плавный переход для фона */
     margin: 0 5px; /* Расстояние между страницами */
 }
-
 
