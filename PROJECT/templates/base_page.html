@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-
-{% block head %}
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'base_style.css' %}">
     <title>Document</title>
 </head>
-{% endblock %}
-
 <body>
     <div class="home-page">
-        {% block content %}
         <a class="title" href="/">Home page</a><br>
         <a href="/users">List of registered users</a><br>
         <a href="/posts">All posts</a><br>
-        {% endblock %}
+        
     </div>
 </body>
-
-</html>

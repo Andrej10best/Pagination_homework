@@ -3,12 +3,6 @@ body {
     margin: 10px;
 }
 
-.home-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
 .paginator {
     display: flex; /* Используем flex для горизонтального расположения элементов */
